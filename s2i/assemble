@@ -48,17 +48,18 @@ else
 		echo "---> Using 'yarn install' with YARN_ARGS"
 		yarn install $YARN_ARGS
 	else
-		echo "---> Installing dependencies"
+		echo "---> Installing dependencies MOFO"
 		if [ "$DEV_MODE" == true ]; then
 			echo "---> Using 'npm install'"
-			exec npm install -s
+			npm install -s
 		else
 			echo "---> Using 'npm install -s --only=production'"
 			npm install -s --only=production
+		fi
+			echo "----> THIS IS NEW"
 			echo "---> Cleaning up npm cache"
 			rm -rf .npm
 			echo "---> Setting directory write permissions"
 			exec chmod -R g+w .
-		fi
 	fi
 fi
